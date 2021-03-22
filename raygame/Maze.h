@@ -4,6 +4,7 @@
 #include "Wall.h"
 #include "Pac.h"
 #include "Ghost.h"
+#include "PowerUp.h"
 #include <Vector2.h>
 
 /// <summary>

@@ -2,6 +2,8 @@
 #include "Agent.h"
 #include "SeekPathBehavior.h"
 
+
+
 class Maze;
 
 class Ghost : public Agent
@@ -30,6 +32,8 @@ public:
 
 private:
 	SeekPathBehavior* m_pathfindBehavior;
+
+	
 	Maze* m_maze;
 
 	Actor* m_target = nullptr;

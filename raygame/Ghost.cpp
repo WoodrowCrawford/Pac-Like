@@ -9,12 +9,18 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	m_maze = maze;
 	m_pathfindBehavior = new SeekPathBehavior(maze);
 	m_pathfindBehavior->setColor(color);
+
+	
+
 	addBehavior(m_pathfindBehavior);
+	
+
 }
 
 Ghost::~Ghost()
 {
 	delete m_pathfindBehavior;
+
 }
 
 void Ghost::update(float deltaTime)

@@ -36,6 +36,7 @@ int main()
 	Maze::TileKey w = Maze::TileKey::WALL;
 	Maze::TileKey s = Maze::TileKey::MUD;
 	Maze::TileKey g = Maze::TileKey::GHOST;
+	Maze::TileKey p = Maze::TileKey::POWERUP;
 
 	// Create the maps
 	Maze::TileKey emptyMap[Maze::HEIGHT][Maze::WIDTH] = {
@@ -141,7 +142,7 @@ int main()
 	};
 
 	// Create a maze, add it to the scene, and set it as the current scene
-	game.setCurrentScene(game.addScene(new Maze(testMap)));
+	game.setCurrentScene(game.addScene(new Maze(pacMap)));
 
 	game.run();
 

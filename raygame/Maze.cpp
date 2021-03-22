@@ -1,4 +1,5 @@
 #include "Maze.h"
+#include "raylib.h"
 
 Maze::Maze(TileKey map[Maze::HEIGHT][Maze::WIDTH])
 {
@@ -56,11 +57,14 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 	case TileKey::OPEN:
 		tile.cost = 1.0f;
 		break;
+
+
 	case TileKey::WALL:
 		tile.cost = 100.0f;
 		tile.actor = new Wall(position.x, position.y);
 		addActor(tile.actor);
 		break;
+
 	case TileKey::GHOST:
 		tile.cost = 1.0f;
 		Ghost* ghost = new Ghost(position.x, position.y, 200.0f, 0xFF6666FF, this);
@@ -68,9 +72,8 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 		tile.actor = ghost;
 		addActor(tile.actor);
 		break;
+
 	
-
-
 	}
 	return tile;
 }

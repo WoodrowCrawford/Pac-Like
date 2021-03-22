@@ -20,7 +20,7 @@ void SeekBehavior::update(Agent* owner, float deltaTime)
 
 	//Calculate the force
 	MathLibrary::Vector2 desiredVelocity = direction * owner->getMaxSpeed();
-	MathLibrary::Vector2 steeringForce = desiredVelocity - owner->getVelocity();
+	MathLibrary::Vector2 steeringForce = desiredVelocity - owner->getVelocity() * 23;
 
 	//Apply the force
 	owner->applyForce(steeringForce);
