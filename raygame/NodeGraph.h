@@ -23,6 +23,9 @@ namespace NodeGraph
 		std::vector<Edge> connections;
 	};
 
+
+	void BFS(int startX, int startY, int goalX, int goalY);
+
 	/// <summary>
 	/// Find a path from the start node to the end node.
 	/// IMPLEMENT this function.

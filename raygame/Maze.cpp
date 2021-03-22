@@ -68,6 +68,9 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 		tile.actor = ghost;
 		addActor(tile.actor);
 		break;
+	
+
+
 	}
 	return tile;
 }

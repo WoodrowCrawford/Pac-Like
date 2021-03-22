@@ -1,5 +1,13 @@
 #include "NodeGraph.h"
 #include <raylib.h>
+#include <deque>
+
+
+
+
+
+
+
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {

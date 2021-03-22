@@ -21,7 +21,8 @@ public:
 		OPEN,
 		WALL,
 		MUD,
-		GHOST
+		GHOST,
+		POWERUP
 	};
 
 	/// <summary>
