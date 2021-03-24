@@ -18,13 +18,15 @@ namespace NodeGraph
 		MathLibrary::Vector2 position;
 
 		float gScore;
+		float hScore;
+		float fScore;
 		Node* previous;
 
 		std::vector<Edge> connections;
 	};
 
 
-	void BFS(int startX, int startY, int goalX, int goalY);
+	
 
 	/// <summary>
 	/// Find a path from the start node to the end node.
