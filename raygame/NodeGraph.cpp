@@ -13,7 +13,9 @@
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
-	// Find a path from start to end (The current implementation is obviously insufficient)
+	// Find a path from start to end (The current implementation is obviously insufficient)\
+
+	//Makes a path using A* (A star)
 	std::deque<Node*> path;
 	std::deque<Node*> openList;
 	std::deque<Node*> closedList;
@@ -24,13 +26,14 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		return path;
 	}
 	Node* currentNode = start;
+	
 	openList.push_front(start);
 	
 	while (!openList.empty())
 	{
-		for (int i = 0; i < start->fScore; i++)
+		for (int i = 0; i < currentNode->fScore; i++)
 		{
-			start->fScore;
+			currentNode->fScore;
 		}
 		openList.push_front(currentNode);
 		
@@ -38,6 +41,72 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		{
 			return path;
 		}
+
+		openList.pop_front();
+		closedList.push_front(currentNode);
+
+		for (int i = 0; i < currentNode->connections.size(); i++)
+		{
+			Node* goal = end;
+			Edge* cost = nullptr;
+			if (goal == end->previous->previous)
+			{
+				goal = goal->previous;
+			}
+			else if (goal = end->previous)
+			{
+				goal = end->previous->previous;
+			}
+
+			if (goal = closedList[i])
+			{
+				//Create a float and set it to be the g score of the iterator plus the cost of the edge
+				float gScore = goal->gScore + cost->cost;
+
+				//Create a float and set it to be the h score of the node at the end of the edge
+				float hScore = cost->cost;
+				 
+				//Create a float for the f score and set it to be the g score combined with the h score
+				float fScore = gScore + hScore;
+
+				if (goal = openList[i])
+				{
+					
+					//Set the nodes g score to be the g score calculated earlier
+					goal->gScore = gScore;
+
+					//Set the nodes h score to be the h score calculated earlier
+					goal->hScore = hScore;
+
+					//Set the nodes f score to be the f score calculated earlier
+					goal->fScore = fScore;
+
+					//Set the nodes previous to be the iterator
+					goal->previous = currentNode;
+
+					//Add the node to the open list
+					goal = openList[i];
+				}
+
+				else if (fScore < goal->fScore)
+				{
+
+					//Set its g score to be the g score calculated earlier
+					gScore = goal->gScore;
+
+					//Set the nodes h score to be the h score calculated earlier
+					hScore = goal->hScore;
+
+					//Set its f score to be the f score calculated earlier
+					fScore = goal->fScore;
+					 
+					//Set its previous to be the current node
+					goal->previous = currentNode;
+				}
+			}
+			
+		}
+
 	}
 }
 
