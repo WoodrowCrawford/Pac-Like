@@ -35,7 +35,7 @@ void FleeBehavior::update(Agent* owner, float deltaTime)
 	//Find the direction
 	MathLibrary::Vector2 direction = { 0.0f, 0.0f };
 	if (!m_path.empty())
-		direction = MathLibrary::Vector2::normalize(m_path.front()->position - ownerPosition);
+		direction = MathLibrary::Vector2::normalize(m_path.front()->position + ownerPosition);
 
 	//Calculate the force
 	MathLibrary::Vector2 desiredVelocity = direction * owner->getMaxSpeed();
