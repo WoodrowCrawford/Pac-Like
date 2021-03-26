@@ -26,9 +26,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Engine Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Behavior.cpp">
-      <Filter>Engine Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Agent.cpp">
       <Filter>Engine Source Files</Filter>
     </ClCompile>
@@ -69,6 +66,9 @@
       <Filter>Engine Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PowerUp.cpp">
+      <Filter>Engine Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeBehavior.cpp">
       <Filter>Engine Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,6 +122,9 @@
       <Filter>Engine Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PowerUp.h">
+      <Filter>Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeBehavior.h">
       <Filter>Engine Header Files</Filter>
     </ClInclude>
   </ItemGroup>

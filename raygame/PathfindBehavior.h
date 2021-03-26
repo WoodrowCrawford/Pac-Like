@@ -48,10 +48,14 @@ public:
 	int getColor() { return m_color; }
 	void setColor(int color) { m_color = color; }
 
+
+
 protected:
 	virtual MathLibrary::Vector2 findDestination(Agent* owner) = 0;
 
+
 private:
+
 	Maze* m_maze;
 	std::deque<NodeGraph::Node*> m_path;
 

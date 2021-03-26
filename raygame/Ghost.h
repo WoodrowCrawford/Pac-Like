@@ -1,6 +1,7 @@
 #pragma once
 #include "Agent.h"
 #include "SeekPathBehavior.h"
+#include "FleeBehavior.h"
 
 
 
@@ -13,8 +14,10 @@ enum EnemyState
 	EXTRA
 };
 
+
 class PathfindBehavior;
 class SeekPathBehavior;
+class FleeBehavior;
 class Maze;
 
 class Ghost : public Agent
@@ -43,6 +46,7 @@ public:
 
 private:
 	SeekPathBehavior* m_pathfindBehavior;
+	FleeBehavior* m_fleeBehavior;
 	Maze* m_maze;
 	Actor* m_target = nullptr;
 
