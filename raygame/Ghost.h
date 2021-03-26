@@ -4,6 +4,17 @@
 
 
 
+
+//States that the enemy will traverse through
+enum EnemyState
+{
+	PATHFIND,
+	FLEE,
+	EXTRA
+};
+
+class PathfindBehavior;
+class SeekPathBehavior;
 class Maze;
 
 class Ghost : public Agent
@@ -32,10 +43,10 @@ public:
 
 private:
 	SeekPathBehavior* m_pathfindBehavior;
-
-	
 	Maze* m_maze;
-
 	Actor* m_target = nullptr;
+
+	//Makes a variable for the current state of the enemy
+	EnemyState m_currentState;
 };
 

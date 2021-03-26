@@ -25,7 +25,30 @@ Ghost::~Ghost()
 
 void Ghost::update(float deltaTime)
 {
+	//Makes an instance of maze in update
+	Maze* maze;
 	Agent::update(deltaTime);
+
+
+	// a switch statement for the enemy used for its behaviors
+	switch (EnemyState::PATHFIND)
+	{
+	case PATHFIND:
+		if (getTarget() == m_target)
+			m_currentState = PATHFIND;
+
+		
+		break;
+	case FLEE:
+		if (!getTarget())
+			m_currentState = FLEE;
+
+		break;
+
+	case EXTRA:
+		break;
+	
+	}
 }
 
 void Ghost::draw()
