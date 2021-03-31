@@ -13,7 +13,9 @@
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
- 	std::deque<Node*> path;
+
+	std::deque<Node*> path;
+
 
 	//Create a node pointer that points to the start node
 	Node* begin = start;
@@ -28,7 +30,8 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		return path;
 	}
 
-	//Set the start nodes color to be green
+		//return an empty list
+	//end if statement
 
 	//Create a node pointer that will be act as an iterator for the graph
 	Node* currentNode = nullptr;
@@ -43,27 +46,28 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 	//Add start to the open list
 	openList.push_front(start);
 
-	//Loop while the open list is not empty
-	while (!openList.empty())
-	{
-		//Sort the items in the open list by the g score
-		for (int i = 0; i < openList[i]->connections.size(); i++)
-		{
-			//currentNode[i].gScore;
 
-			//Set the iterator to be the first item in the open list
+
+	//Loop while the open list is not empty
+	while (!openList.size())
+	{
+		for (int i = 0; i < openList.size(); i++)
+		{
+
+			//Sort the items in the open list by the g score
+			currentNode->gScore;
+
+		//Set the iterator to be the first item in the open list
 			currentNode = openList[0];
 
-			//Check if the iterator is pointing to the goal node
+
+		//Check if the iterator is pointing to the goal node
 			if (currentNode == finish)
 			{
+			
 				//Return the new path found
 				return path;
-
-
 			}
-			//end if statement
-
 
 			//Pop the first item off the open list
 			openList.pop_back();
@@ -71,84 +75,61 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 			//Add the first item to the closed list
 			closedList.push_front(currentNode);
 
-
-			//Loop through all of the edges for the iterator
-			for (int j = 0; j < currentNode->connections.size(); j++)
+			for (int i = 0; i < currentNode->connections.size(); i++)
 			{
-				//Create a node pointer to store the other end of the edge
-				Node* otheredge = nullptr;
+				Node* otherEdge = nullptr;
 
-				//Check if the iterator is on the second end of the node
-				if (currentNode == currentNode->connections[j].target->connections[j].target)
+				if (currentNode == currentNode->connections[i].target->connections[i].target)
 				{
 					//Set the edge end pointer to be the first end of the node
-					otheredge == currentNode->connections[j].target;
-
-					//Otherwise if the iterator is on the first end of the node...
-					if (currentNode == currentNode->connections[j].target)
-					{
-						//set the edge end pointer to be the second end of the node
-						otheredge == currentNode->connections[j].target->connections[j].target;
-					}
-					// end if statement
-
-					//Check if node at the end of the edge is in the closed list
-					if (otheredge == closedList[i])
-					{
-						//Create an int and set it to be the g score of the iterator plus the cost of the edge
-						int gScore = currentNode->gScore + otheredge->connections[j].cost;
-
-						//Check if the node at the end ofthe edge is in the open list
-						if (otheredge == openList[i])
-						{
-							//Mark the node as visited by changing its color
-
-							//Set the nodes g score to be the g score calculated earlier
-							currentNode->gScore = gScore;
-
-							//Set the nodes previous to be the iterator
-							currentNode->previous = currentNode;
-
-							//Add the node to the open list
-							openList.push_front(currentNode);
-
-
-							//Otherwise if the g score is less than the node at the end of the edge's g score...
-							 if (gScore < otheredge->gScore)
-							{
-
-								//Mark the node as visited by changing its color
-
-								//Set its g score to be the g score calculated earlier
-								otheredge->gScore = gScore;
-
-								//Set its previous to be the current node
-								otheredge->previous = currentNode;
-
-							}
-
-						}
-
-
-					}
-
-
+					otherEdge == currentNode->connections[i].target;
 				}
 
+				//Otherwise if the iterator is on the first end of the node...
+				else if (currentNode == currentNode->connections[i].target)
+				{
+					//set the edge end pointer to be the second end of the node
+					otherEdge == currentNode->connections[i].target->connections[i].target;
+					
+				}
 
+				if (otherEdge == closedList[i])
+				{
+					int gScore = currentNode->gScore + otherEdge->connections[i].cost;
+				
+
+					if (otherEdge == openList[i])
+					{
+						currentNode->gScore = gScore;
+
+						currentNode->previous = currentNode;
+
+						openList.push_front(currentNode);
+					}
+
+					else if (gScore < otherEdge->gScore)
+					{
+						otherEdge->gScore = gScore;
+
+						otherEdge->previous = currentNode;
+					}
+				}
 			}
-
-
 		}
-
 	}
 
 
 
+		
+
+
+			
+
+		
 
 	return path;
-
 }
+ 
 
 void NodeGraph::drawGraph(Node* start)
 {

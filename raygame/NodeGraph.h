@@ -23,6 +23,8 @@ namespace NodeGraph
 		float gScore;
 		float hScore;
 		float fScore;
+
+		bool visited;
 		Node* previous;
 
 		std::vector<Edge> connections;
