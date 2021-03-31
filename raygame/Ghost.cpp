@@ -9,8 +9,10 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	m_maze = maze;
 	m_pathfindBehavior = new SeekPathBehavior(maze);
 	m_pathfindBehavior->setColor(color);
-	m_fleeBehavior = new FleeBehavior(maze);
-	m_fleeBehavior->setColor(color);
+	addBehavior(m_pathfindBehavior);
+	
+	//m_fleeBehavior = new FleeBehavior(maze);
+	//m_fleeBehavior->setColor(color);
 
 
 }
@@ -18,7 +20,7 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 Ghost::~Ghost()
 {
 	delete m_pathfindBehavior;
-	delete m_fleeBehavior;
+
 }
 
 void Ghost::update(float deltaTime)
@@ -28,32 +30,14 @@ void Ghost::update(float deltaTime)
 	Agent::update(deltaTime);
 
 
-	// a switch statement for the enemy used for its behaviors
-	switch (EnemyState::PATHFIND, EnemyState::FLEE, EnemyState::EXTRA)
-	{
-	case PATHFIND:
-		if (!getTarget())
-			m_currentState = PATHFIND;
-		addBehavior(m_pathfindBehavior);
-
-		break;
-	case FLEE:
-		if (getTarget())
-			m_currentState = FLEE;
-		addBehavior(m_fleeBehavior);
-		break;
-
-		//An extra case 
-	case EXTRA:
-		break;
 	
-	}
 }
 
 void Ghost::draw()
 {
 	m_pathfindBehavior->draw(this);
-	m_fleeBehavior->draw(this);
+
+	//m_fleeBehavior->draw(this);
 	Agent::draw();
 }
 
@@ -78,7 +62,8 @@ void Ghost::setTarget(Actor* target)
 {
 	m_target = target;
 	m_pathfindBehavior->setTarget(target);
-	m_fleeBehavior->setTarget(target);
+
+	//m_fleeBehavior->setTarget(target);
 }
 
 Actor* Ghost::getTarget()

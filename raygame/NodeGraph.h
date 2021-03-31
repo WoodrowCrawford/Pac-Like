@@ -9,6 +9,8 @@ namespace NodeGraph
 
 	struct Edge
 	{
+		Node* connectedNode1;
+		Node* connectedNode2;
 		Node* target;
 		float cost;
 	};
