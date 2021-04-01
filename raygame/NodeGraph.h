@@ -31,6 +31,7 @@ namespace NodeGraph
 	};
 
 
+	bool CheckList(Node* node, std::deque<Node*> path);
 	
 
 	/// <summary>

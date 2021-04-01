@@ -13,7 +13,7 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	
 
 	addBehavior(m_pathfindBehavior);
-	
+    
 
 }
 
