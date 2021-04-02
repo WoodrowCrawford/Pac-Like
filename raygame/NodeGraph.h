@@ -13,6 +13,7 @@ namespace NodeGraph
 		Node* connectedNode2;
 		Node* target;
 		float cost;
+		
 	};
 
 	struct Node
@@ -22,6 +23,8 @@ namespace NodeGraph
 		float gScore;
 		float hScore;
 		float fScore;
+
+		bool visited;
 		Node* previous;
 		bool visited;
 
@@ -29,6 +32,7 @@ namespace NodeGraph
 	};
 
 
+	bool CheckList(Node* node, std::deque<Node*> path);
 	
 
 	/// <summary>

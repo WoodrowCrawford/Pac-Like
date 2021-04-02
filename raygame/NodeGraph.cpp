@@ -133,7 +133,21 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 
 
 		}
+	}
+	
+	return path;
+}
+ 
 
+bool NodeGraph::CheckList(Node* node, std::deque<Node*> path)
+{
+	for (int i = 0; i < path.size(); i++)
+	{
+		if (node == path[i])
+		{
+			return true;
+		}
+		
 	}
 
 		
@@ -164,7 +178,7 @@ void NodeGraph::drawNode(Node* node, int color)
 
 void NodeGraph::drawConnectedNodes(Node* node, std::deque<Node*>* drawnList)
 {
-	//drawNode(node);
+	drawNode(node);
 	drawnList->push_back(node);
 
 	//For each Edge in this node's connections
