@@ -9,8 +9,6 @@ namespace NodeGraph
 
 	struct Edge
 	{
-		Node* connectedNode1;
-		Node* connectedNode2;
 		Node* target;
 		float cost;
 		
@@ -24,15 +22,14 @@ namespace NodeGraph
 		float hScore;
 		float fScore;
 
-		bool visited;
+		
 		Node* previous;
-		bool visited;
+		
 
 		std::vector<Edge> connections;
 	};
 
 
-	bool CheckList(Node* node, std::deque<Node*> path);
 	
 
 	/// <summary>
@@ -43,6 +40,10 @@ namespace NodeGraph
 	/// <param name="end">The destination node</param>
 	/// <returns>A deque storing the found path</returns>
 	std::deque<Node*> findPath(Node* start, Node* end);
+
+	bool checkList(std::deque<Node*> list, Node* lookingFor);
+
+	float updateHScore(Node* currentNode, Node* end);
 
 	/// <summary>
 	/// Draw the entire graph. Currently has very poor performance.
